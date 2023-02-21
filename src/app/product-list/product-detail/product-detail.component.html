@@ -1,0 +1,40 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="100%" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="productForm" (ngSubmit)="saveProduct(productForm)" autocomplete="off">
+          <mat-form-field appearance="standard">
+            <mat-label>Product Name</mat-label>
+            <input matInput placeholder="Product name" formControlName="name" #nameInput required>
+            <mat-error>Product name is required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Product Type</mat-label>
+            <input matInput placeholder="Product type" maxlength="56" formControlName="type" #typeInput required>
+            <mat-error *ngIf="productForm.controls['type'].errors?.['required']">Product type is required</mat-error>
+            <mat-error *ngIf="productForm.controls['type'].errors?.['maxlength']">Type must be less than 56 characters</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Product Description</mat-label>
+            <input matInput placeholder="Product description" maxlength="56" formControlName="description" #descriptionInput required>
+            <mat-error *ngIf="productForm.controls['description'].errors?.['required']">Product description is required</mat-error>
+            <mat-error *ngIf="productForm.controls['description'].errors?.['maxlength']">Description must be less than 56 characters</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Product Color</mat-label>
+            <input matInput placeholder="Product color" maxlength="56" formControlName="color" #colorInput required>
+            <mat-error *ngIf="productForm.controls['color'].errors?.['required']">Product color is required</mat-error>
+            <mat-error *ngIf="productForm.controls['color'].errors?.['maxlength']">Color must be less than 56 characters</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" placeholder="1" min="1" formControlName="price" #priceInput required>
+            <mat-error *ngIf="productForm.controls['price'].errors?.['min']">Price must be greater than 0</mat-error>
+          </mat-form-field>
+          <button type="submit" mat-flat-button class="m-t-5" color="primary">Save</button>
+          <a mat-flat-button class="m-l-5" color="secondary" [routerLink]="['/product-list']">Cancel</a>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

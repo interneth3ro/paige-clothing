@@ -1,0 +1,22 @@
+<div class="main-container">
+    <mat-toolbar color="primary" class="topbar telative">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <span fxShow="false" fxShow.gt-xs>
+                    <img src="assets/images/paige_logo_tm.png" class="light-logo" alt="homepage">
+                </span>
+            </a>
+        </div>
+        <span fxFlex></span>
+    </mat-toolbar>
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="'side'" [opened]="true">
+            <app-sidebar></app-sidebar>
+        </mat-sidenav>
+        <mat-sidenav-content class="page-wrapper">
+            <div class="page-content">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
