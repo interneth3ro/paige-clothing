@@ -13,12 +13,16 @@ import { MaterialModule } from './material.module';
 
 import { SharedModule } from './shared/shared.module';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailComponent } from './product-list/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
